@@ -1,3 +1,6 @@
+# My FUCKING TOKEN
+*.env
+
 # Logs
 logs
 *.log

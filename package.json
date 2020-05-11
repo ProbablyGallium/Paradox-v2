@@ -1,0 +1,23 @@
+{
+  "name": "paradox-v2",
+  "version": "0.0.1",
+  "description": "A rewrite of \"popular\" Discord bot Paradox, made by me back when I was a JS brainlet.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benzarr410/Paradox-v2.git"
+  },
+  "author": "Gallium",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/benzarr410/Paradox-v2/issues"
+  },
+  "homepage": "https://github.com/benzarr410/Paradox-v2#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0"
+  }
+}

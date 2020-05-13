@@ -8,7 +8,7 @@ module.exports = {
   description: "Get info on a user or server.",
   execute(client, message, args) {
     if (!args[0]) {
-      message.channel.send("You didn't tell me what to give you info on! Try `p.info user <Mention, User ID, or Username>` or `p.info guild`!")
+      message.channel.send("You didn't tell me what to give you info on! Try `p.info user <Mention, User ID, or Username>` or `p.info server <Server ID>`!")
     } else if (args[0] === "user") {
       let u = message.functions.parseMember(args[1])
       let j = u.joinedAt
@@ -26,8 +26,23 @@ module.exports = {
         .addField("Joined Guild on", dateFormat(j, "mmmm d, yyyy 'at' h:MM:ss TT Z")
           , false)
       )
-				
     }
-
+    else if (args[0] === "guild" || args[0] === "server") {
+      let g = message.guild
+      if (!g.available) {message.channel.send("This guild isn't available! It could be experiencing an outage right now, in which case, try again later."); return}
+      message.channel.send(new Discord.RichEmbed()
+        .setTitle(`Information about ${g.name}`)
+        .setColor(message.member.displayColor)
+        .setThumbnail(g.iconURL)
+        .addField("Owner", g.owner.user.tag, false)
+        .addField("Server ID", g.id, false)
+        .addField("Region", g.region ,true)
+        .addField("Members", g.memberCount, true)
+        .addField("Roles", g.roles.map(r => r.name).join(", "))
+        .addField("Guild Created on", dateFormat(g.createdAt, "mmmm d, yyyy 'at' h:MM:ss TT Z")
+          , false)
+        //TODO: Add functionality for a specified guild ID, and make it yell at you if you don't give it a valid first arg
+      )
+    }
   }
 }

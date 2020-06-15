@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/benzarr410/Paradox-v2#readme",
   "dependencies": {
+    "banana-js": "^0.2.5",
     "dateformat": "^3.0.3",
     "discord.js": "^11.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
   }
 }
